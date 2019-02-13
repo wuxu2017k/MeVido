@@ -34,7 +34,16 @@ namespace MeVido
                 //System.IO.Path.GetDirectoryName(openFile.FileName);//得到路径
                 file = System.IO.Path.GetDirectoryName(openFile.FileName) + "\\" + System.IO.Path.GetFileName(openFile.FileName);        
             }
-            open();
+            if(file!=null)
+            {
+                open();
+            }
+            if(file!=null)
+            {
+                button2.Enabled = true;
+                button4.Enabled = true;
+            }
+           
         }
         private void open()
         {
@@ -98,7 +107,10 @@ namespace MeVido
             i = 0;
             aviStream.Close();
             aviManager.Close();
-           
+            pictureBox1.Image = null;
+            file = null;
+            button2.Enabled = false;
+            button4.Enabled = false;
         }
     }
 }
